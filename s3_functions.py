@@ -2,9 +2,6 @@
 import boto3
 import botocore
 from botocore.exceptions import ClientError
-# temp
-import pprint
-pp = pprint.PrettyPrinter(indent=4)
 
 client = boto3.client('s3')
 delete_object_dict = {}
@@ -32,7 +29,6 @@ class s3(object):
 
 	def object_versions(self):
 		response = client.list_object_versions(Bucket=self.bucketName)
-		# pp.pprint(response)
 		i = 0
 		if 'DeleteMarkers' in response:
 			for mark in response['DeleteMarkers']:
